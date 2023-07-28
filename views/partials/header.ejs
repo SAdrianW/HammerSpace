@@ -17,7 +17,13 @@
     |
     <a href="/users">Users</a>
     |
-    <a href="/">Log-In</a>
+    <% if (user) { %>
+      <a href="/logout">Log-Out</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">Log-In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
+    
+
   </nav>
 
   <h2>HammerSpace</h2>
