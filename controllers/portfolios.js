@@ -7,8 +7,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-    // const portfolios = await Portfolio.find({});
-    res.render('portfolios', { title: 'All Portfolios'})
+    const portfolios = await Portfolio.find({});
+    res.render('portfolios', { title: 'All Portfolios', portfolios})
 }
 
 async function newPortfolio(req, res) {

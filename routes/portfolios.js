@@ -14,4 +14,7 @@ router.get('/new', portfoliosController.new);
 // POST /portfolios
 router.post('/', portfoliosController.create)
 
+// SHOW /portfolios/:id
+
+
 module.exports = router;
