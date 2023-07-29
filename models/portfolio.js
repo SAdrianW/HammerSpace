@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const portfolioSchema = new Schema ({
     user: Schema.Types.ObjectId,
-    name: {
+    pfName: {
         type: String,
         required: true
     },
     genre: String,
-    armies: String,     // embeded within?
+    armies: String,     // embeded within? v vv
     squads: String,     // does not display on pf page
     units: String,      // does not display on pf page
     // coverImg: String
