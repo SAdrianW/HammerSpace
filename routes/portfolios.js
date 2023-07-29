@@ -8,7 +8,8 @@ const portfoliosController = require('../controllers/portfolios');
 // GET /portfolios
 router.get('/', portfoliosController.index);
 
+// GET /new
+router.get('/new', portfoliosController.new);
 
 
-
-  module.exports = router;
+module.exports = router;

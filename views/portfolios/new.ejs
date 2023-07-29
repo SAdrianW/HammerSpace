@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<h1>New</h1>
+<h2>Create a detail page for a new; Portfolio, Army, Squad or Unit/Individual</h2>
+
+<!-- !!!??? HELP: need to make a table that takes multiple inputs and assigns all new fields to a new data page(?), but assigns new 
+    data to existing data/models. ex: Have created portfolio and army; creating squad is current task, filled out pf and army forms 
+    with same name (drop down box [select] if exists). Want to make new squad and assign it to existing pf and army not make new pf 
+    and army 
+    
+    See new-avd.ejs for larger table that was an attempt at the above.
+    !!!??? -->
+
+
+
+<form id="new-portfolio" action="/portfolios">
+    <label>Portfolio Name</label>
+    <input type="text" name="portfolio">
+    <label>Genre</label>
+    <input type="text" name="genre">
+    <label>Armies</label>
+    <input type="text" name="armies">
+    <input type="submit">
+</form>
+
+
+
+<%- include('../partials/footer') %>

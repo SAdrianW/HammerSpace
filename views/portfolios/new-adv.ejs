@@ -1,0 +1,28 @@
+
+
+<!-- !!!??? HELP: need to make a table that takes multiple inputs and assigns all new fields to a new data page(?), but assigns new 
+    data to existing data/models. ex: Have created portfolio and army; creating squad is current task, filled out pf and army forms 
+    with same name (drop down box [select] if exists). Want to make new squad and assign it to existing pf and army not make new pf 
+    and army !!!??? -->
+
+
+<form id="new-data" action="/portfolios">
+    <!-- user will/should be auto filled, i think schema.types.objid does this -->
+    <!-- sections to be used for different data types/models -->
+    <label>Portfolio Name</label>
+    <input type="text" name="portfolio">    <!-- pf -->
+    <label>Armies</label>
+    <input type="text" name="armies">       <!-- pf, a -->
+    <label>Squad</label>
+    <input type="text" name="squads">       <!-- pf, a -->
+    <label>Unit/Idividual</label>
+    <input type="text" name="units">        <!-- a, s -->
+    <label>Genre</label>
+    <input type="text" name="genre">        <!-- pf -->
+    <label>Status</label>
+    <input type="text" name="status">       <!-- a?, s, u -->
+    <label>Leader</label>
+    <input type="text" name="leader">       <!-- a?, s -->
+    <label>Equipment</label>
+    <input type="text" name="equipment">    <!-- s, u -->
+</form>
