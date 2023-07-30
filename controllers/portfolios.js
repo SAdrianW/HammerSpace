@@ -4,7 +4,7 @@ module.exports = {
     index,
     new: newPortfolio,
     create,
-    index
+    show
 };
 
 async function index(req, res) {
@@ -27,8 +27,9 @@ async function create(req, res) {
     }
 }
 
-// async function index(req, res) {                                 // !!! ------ HELP ------ !!!
-//     const portfolio = await Portfolio.findOne(req.params.id);    // findById wasn't being recognised as a function
-//     res.render('portfolios/showPf', {title: 'Portfolio Details', portfolio});
-// }
+async function show(req, res) {                                 // !!! ------ HELP ------ !!!
+    const portfolio = await Portfolio.findById(req.params.id);    // findById wasn't being recognised as a function
+    res.render('portfolios/showPf', {title: 'Portfolio Details', portfolio});
+    // console.log(portfolio);
+}
 

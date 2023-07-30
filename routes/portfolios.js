@@ -15,7 +15,7 @@ router.get('/new', portfoliosController.new);
 router.post('/', portfoliosController.create)
 
 // GET /portfolios/:id (show func)
-router.get('/:id', portfoliosController.index);
+router.get('/:id', portfoliosController.show);
 
 
 module.exports = router;
