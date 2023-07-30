@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+
+
+<table id="portfolio-details">
+  <thead>
+    <% portfolio.forEach(function(pf) { %>
+    <h3><%= pf.pfName %></h3>
+    <tr>
+      <th>Genre</th>
+      <th>Cover Image</th>
+      <th>User Name</th>
+      <th>Armies</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= pf.genre %></td>
+        <td>Image example</td>
+        <td><%= pf.user %></td>
+        <td><%= pf.armies %></td>
+      </tr> 
+    <% }) %>  
+  </tbody>
+</table>
+
+
+<%- include('../partials/footer') %>

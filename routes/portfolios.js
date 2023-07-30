@@ -8,13 +8,14 @@ const portfoliosController = require('../controllers/portfolios');
 // GET /portfolios
 router.get('/', portfoliosController.index);
 
-// GET /portfolios/new
+// GET /portfolios/new      ensurelogin TODO
 router.get('/new', portfoliosController.new);
 
-// POST /portfolios
+// POST /portfolios         ensurelogin TODO
 router.post('/', portfoliosController.create)
 
-// SHOW /portfolios/:id
+// GET /portfolios/:id (show func)
+router.get('/:id', portfoliosController.index);
 
 
 module.exports = router;
