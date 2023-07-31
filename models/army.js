@@ -16,6 +16,8 @@ const armySchema = new Schema ({
     portfolio: String,      // *  *
     squads: String,
     units: String,
+    leader: String,
+    description: String,
     genre: String,
     status: String,
     // squads: squadSchema,

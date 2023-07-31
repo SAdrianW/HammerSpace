@@ -18,7 +18,9 @@ const unitSchema = new Schema ({
     squads: String,         // *  *
     genre: String,
     status: String,
-    equipment: String
+    equipment: String,
+    leader: String,
+    description: String
 }, {
     timestamps: true
 });

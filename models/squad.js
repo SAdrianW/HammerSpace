@@ -13,12 +13,22 @@ const squadSchema = new Schema ({
         type: String,
         required: true
     },
-    portfolio: String,      // *  *
-    armies: String,         // *  *
-    units: String,
+    portfolio: {
+        type: Schema.Types.ObjectId,
+        ref: 'Portfolio',
+    },      
+    armies: {
+        type: Schema.Types.ObjectId,
+        ref: 'Army',
+    },        
+    units: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Units',
+    }],
     genre: String,
     status: String,
     leader: String, 
+    description: String, 
     equipment: String,
     // units: unitSchema
 }, {
