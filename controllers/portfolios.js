@@ -31,8 +31,8 @@ async function create(req, res) {
     }
 }
 
-async function show(req, res) {                                 // !!! ------ HELP ------ !!!
-    const portfolio = await Portfolio.findById(req.params.id);    // findById wasn't being recognised as a function
+async function show(req, res) {                                 
+    const portfolio = await Portfolio.findById(req.params.id);    
     res.render('portfolios/showPf', {title: 'Portfolio Details', portfolio});
     // console.log(portfolio);
 }

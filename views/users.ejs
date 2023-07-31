@@ -19,8 +19,10 @@
             <div>
               <td>
                 <ul>
-                  
-                  <li><%= u.portfolios %></li>              
+                  <% u.portfolios.forEach((p) => { %>
+                  <li>
+                    <a href="/portfolios/<%= p._id %>"><%= p.pfName %></a>
+                  </li>  <% }) %>            
                 </ul>
               </td>
             </div>

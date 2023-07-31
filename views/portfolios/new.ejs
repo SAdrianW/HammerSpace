@@ -19,11 +19,30 @@
     <input type="text" name="pfName">
     <label>Genre</label>
     <input type="text" name="genre">
-    <label>Armies</label>      
-    <input type="text" name="armies">
+    <!-- <label>Armies</label>      
+    <input type="text" name="armies"> -->
+    <!-- Armies will display from an array built into the pf model -->
     <input type="submit">
 </form>
 
 <!-- armies in above form returns a string but page is currently looking for a schema -->
+
+<section>
+    <h3>Add Army to Portfolio</h3>
+    <form id="new-army" method="POST" action="/armies">
+      <label>Army name</label>
+      <input type="text" name="armyName">
+      <label>Genre</label>
+      <input type="text" name="genre">
+      <label>Status</label>
+      <select name="status">
+        <option value="Finished">Finished</option>
+        <option value="WIP">WIP</option>
+        <option value="Old">Old</option>
+      </select>
+      <button>Add Army</button>      
+    </form>
+  </section>
+  
 
 <%- include('../partials/footer') %>

@@ -9,7 +9,7 @@ const userSchema = new Schema({
     },
     email: String,
     avatar: String,
-    portfolios: [],
+    
 }, {
     timestamps: true
 });

@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<!-- TODO re-organise list -->
+
+<table id="armies-list">
+    <thead>
+      <tr>
+        <th>Genre</th>
+        <th>Name</th>
+        <th>Squads</th>
+        <th>Cover Image</th>
+        <th>Units</th>
+        <th>Cover Image</th>
+        <th>User Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% armies.forEach(function(a) { %>
+        <tr>
+          <td><%= a.genre %></td>
+          <td><%= a.armyName %></td>
+          <td><a href="/portfolios"><%= a.squads %></a></td>
+          <td>Image example</td>
+          <td><%= a.units %></td>
+          <td>Image example</td>
+          <td><%= a.userName %></td>
+        </tr> 
+      <% }) %>  
+    </tbody>
+  </table>
+  
+
+
+<%- include('../partials/footer') %>

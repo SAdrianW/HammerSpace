@@ -17,7 +17,7 @@
         <tr>
           <td><%= portfolio.genre %></td>
           <td>Image example</td>
-          <td><%= portfolio.user %></td>
+          <td><%= portfolio.userName %></td>
           <td><%= portfolio.armies %></td>
         </tr> 
     </tbody>
@@ -26,23 +26,6 @@
 
 <br>
 
-<!-- needs to be moved to /new or another new page -->
-<section>
-  <h3>Add Army to Portfolio</h3>
-  <form id="new-army" method="POST" action="/portfolios/<%= portfolio._id %>/armies">
-    <label>Army name</label>
-    <input type="text" name="armyName">
-    <label>Genre</label>
-    <input type="text" name="genre">
-    <label>Status</label>
-    <select name="status">
-      <option value="Finished">Finished</option>
-      <option value="WIP">WIP</option>
-      <option value="Old">Old</option>
-    </select>
-    <button>Add Army</button>      
-  </form>
-</section>
 
 
 <%- include('../partials/footer') %>
