@@ -3,7 +3,7 @@ const Army = require('../models/army');
 
 module.exports = {
     create,
-    // new: newArmy,
+    new: newArmy,
     index, 
     // show,
     // delete: deleteArmy
@@ -15,7 +15,10 @@ async function create(req, res) {
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
-        await Army.create(req.body);
+        const army = await Army.create(req.body);
+        const portfolio = await Portfolio.findById(req.body.portfolio);
+        portfolio.armies.push(army._id);
+        await portfolio.save();
     } catch (err) {
         console.log(err);
     }
@@ -23,9 +26,10 @@ async function create(req, res) {
 }
 
 // go to page that shows form to make new army
-// async function newArmy(req, res) {
-//     res.render('armies/new', { title: 'New Army'})
-// }
+async function newArmy(req, res) {
+    req.user.portfolios = await Portfolio.find({user: req.user._id})
+    res.render('armies/new', { title: 'New Army'})
+}
 
 async function index(req, res) {
     const armies = await Army.find({});

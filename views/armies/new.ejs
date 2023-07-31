@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+
+
+<section>
+    <h3>Add Army to Portfolio</h3>
+    <form id="new-army" method="POST" action="/armies">
+      <label>Army name</label>
+      <input type="text" name="armyName">
+      <label>Genre</label>
+      <input type="text" name="genre">
+      <label>Status</label>
+      <select name="status">
+        <option value="Finished">Finished</option>
+        <option value="WIP">WIP</option>
+        <option value="Old">Old</option>
+      </select>
+      <label>Portfolio</label>
+      <select name="portfolio">
+        <% user.portfolios.forEach(p => { %>
+            <option value="<%= p._id %>"><%= p.pfName %></option>
+        <% }) %>
+      </select>
+      <button>Add Army</button>      
+    </form>
+  </section>
+  
+
+<%- include('../partials/footer') %>

@@ -17,7 +17,7 @@ const portfolioSchema = new Schema ({
         required: true
     },
     genre: String,
-    armies: String,     // embeded within? no, use refeerencing instead v vv
+    armies: [{ type: Schema.Types.ObjectId, ref: 'Army'}],    //String,     // embeded within? no, use refeerencing instead v vv
     squads: String,     // does not display on pf page
     units: String,      // does not display on pf page
     // coverImg: String

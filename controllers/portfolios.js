@@ -8,7 +8,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-    const portfolios = await Portfolio.find({});
+    const portfolios = await Portfolio.find({}).populate('armies');
     // console.log(portfolios)
     res.render('portfolios', { title: 'All Portfolios', portfolios})
 }
@@ -32,7 +32,7 @@ async function create(req, res) {
 }
 
 async function show(req, res) {                                 
-    const portfolio = await Portfolio.findById(req.params.id);    
+    const portfolio = await Portfolio.findById(req.params.id).populate('armies');    
     res.render('portfolios/showPf', {title: 'Portfolio Details', portfolio});
     // console.log(portfolio);
 }

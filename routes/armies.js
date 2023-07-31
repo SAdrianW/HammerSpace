@@ -5,6 +5,9 @@ const armiesController = require('../controllers/armies')
 // GET /armies
 router.get('/armies', armiesController.index);
 
+// GET /armies/new
+router.get('/armies/new', armiesController.new);
+
 // POST /:id/armies
 router.post('/armies', armiesController.create);
 

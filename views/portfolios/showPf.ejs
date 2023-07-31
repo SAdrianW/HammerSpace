@@ -18,7 +18,13 @@
           <td><%= portfolio.genre %></td>
           <td>Image example</td>
           <td><%= portfolio.userName %></td>
-          <td><%= portfolio.armies %></td>
+          <td>
+            <ul>
+              <% portfolio.armies.forEach((a) => { %>
+                <li> <%= a.armyName %> </li>
+              <% }) %>
+            </ul>
+          </td>
         </tr> 
     </tbody>
   </table>
