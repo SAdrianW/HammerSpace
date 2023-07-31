@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const portfoliosController = require('../controllers/portfolios');
-// const ensureLoggedIn = require('../config/ensureLoggedIn');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // server.js defines base route as/portfolios
 // then routes here go to other places
@@ -9,7 +9,7 @@ const portfoliosController = require('../controllers/portfolios');
 router.get('/', portfoliosController.index);
 
 // GET /portfolios/new      ensurelogin TODO
-router.get('/new', portfoliosController.new);
+router.get('/new', ensureLoggedIn, portfoliosController.new);
 
 // POST /portfolios         ensurelogin TODO
 router.post('/', portfoliosController.create)
