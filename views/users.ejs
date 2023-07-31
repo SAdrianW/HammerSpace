@@ -12,12 +12,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-        <td>Aang</td>
-        <td>the Last Air Bender</td>
-        <td>Portfolio 1</td>
-        <td>Image example</td>
-    </tr>
+    <% users.forEach(function(u) { %>
+      <tr>
+          <td><img src="<%= u.avatar %>"/></td>
+          <td><%= u.name %></td>
+            <div>
+              <td>
+                <ul>
+                  
+                  <li><%= u.portfolios %></li>              
+                </ul>
+              </td>
+            </div>
+          <td><img src=""/></td>
+      </tr>
+    <% }) %>
   </tbody>
 </table>
 
