@@ -12,11 +12,14 @@ module.exports = {
 
 async function create(req, res) {
     try {
+        req.body.user = req.user._id;
+        req.body.userName = req.user.name;
+        req.body.userAvatar = req.user.avatar;
         await Army.create(req.body);
     } catch (err) {
         console.log(err);
     }
-    res.redirect('/portfolios/new');
+    res.redirect('/armies');
 }
 
 // go to page that shows form to make new army
