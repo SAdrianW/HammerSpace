@@ -12,4 +12,7 @@ router.get('/armies/new', ensureLoggedIn, armiesController.new);
 // POST /:id/armies
 router.post('/armies', armiesController.create);
 
+// GET /armies/:id (show func)
+router.get('/armies/:id', armiesController.show);
+
 module.exports = router;

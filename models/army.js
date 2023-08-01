@@ -14,8 +14,8 @@ const armySchema = new Schema ({
         required: true
     },
     portfolio: String,      // *  *
-    squads: String,
-    units: String,
+    squads: [{ type: Schema.Types.ObjectId, ref: 'Squad'}],
+    units: [{ type: Schema.Types.ObjectId, ref: 'Unit'}],
     leader: String,
     description: String,
     genre: String,

@@ -1,0 +1,49 @@
+<%- include('../partials/header') %>
+
+<!-- TODO re-organise list -->
+
+<section>
+  <table id="army-details">
+    <thead>
+      <h3><%= army.armyName %></h3>
+      <tr>
+        <th>Genre</th>
+        <th>Cover Image</th>
+        <th>User Name</th>
+        <th>Squads</th>
+        <th>Units</th>
+        <th>Leader</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= army.genre %></td>
+          <td>Image example</td>
+          <td><%= army.userName %></td>
+          <td>
+            <ul>
+              <% army.squads.forEach((s) => { %>
+                <li><a href="/armies/<%=  %>"><%= s.squadName %></a></li>
+              <% }) %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% army.units.forEach((u) => { %>
+                <li><a href="/armies/<%=  %>"><%= u.unitName %></a></li>
+              <% }) %>
+            </ul>
+            <td><%= army.leader %></td>
+            <td><%= army.description %></td>
+          </td>
+        </tr> 
+    </tbody>
+  </table>
+</section>
+
+<br>
+
+
+
+<%- include('../partials/footer') %>

@@ -21,7 +21,7 @@
           <td>
             <ul>
               <% portfolio.armies.forEach((a) => { %>
-                <li> <%= a.armyName %> </li>
+                <li><a href="/armies/<%= a._id %>"><%= a.armyName %></a></li>
               <% }) %>
             </ul>
           </td>

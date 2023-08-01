@@ -5,7 +5,7 @@ module.exports = {
     create,
     new: newArmy,
     index, 
-    // show,
+    show,
     // delete: deleteArmy
 }
 
@@ -37,17 +37,8 @@ async function index(req, res) {
     res.render('armies/index', { title: 'All Armies', armies})
 }
 
+async function show(req, res) {                                 
+    const army = await Army.findById(req.params.id).populate('squads', 'units');    
+    res.render('armies/show', {title: 'Army Details', army});
+}
 
-
-// embedded create function. not using
-// async function create(req, res) {
-//     const portfolio = await Portfolio.findById(req.params.id);
-//     portfolio.armies.push(req.body)
-//     try {
-//         await portfolio.save();
-//     } catch (err) {
-//         console.log(err);
-//     }
-//     res.redirect('/portfolios');
-//     // res.render(`portfolios/${ portfolio._id }/armies}`)
-// }
