@@ -13,7 +13,7 @@ const unitSchema = new Schema ({
         type: String,
         required: true
     },
-    portfolios: String,     // *  *
+    portfolios: String,     
     armies: {
         type: Schema.Types.ObjectId,
         ref: 'Army',
@@ -21,7 +21,7 @@ const unitSchema = new Schema ({
     squads: [{
         type: Schema.Types.ObjectId,
         ref: 'Squads',
-    }],         // *  *
+    }],         
     genre: String,
     status: String,
     equipment: String,

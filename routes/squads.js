@@ -3,6 +3,8 @@ const router = express.Router();
 const armiesController = require('../controllers/armies');
 const squadsController = require('../controllers/squads');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
+const cloudinary = require('../utils/cloudinary'); //
+const upload = require('../utils/multer'); //
 
 // GET /squads
 router.get('/squads', squadsController.index);
@@ -11,7 +13,7 @@ router.get('/squads', squadsController.index);
 router.get('/squads/new', ensureLoggedIn, squadsController.new);
 
 // POST /:id/squads
-router.post('/squads', squadsController.create);
+router.post('/squads', upload.single('image'), squadsController.create);
 
 // GET /squads/:id (show func)
 router.get('/squads/:id', squadsController.show);

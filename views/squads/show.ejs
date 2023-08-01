@@ -24,11 +24,11 @@
         <td>
           <ul>
             <% squad.units.forEach((u) => { %>
-              <li><a href="/armies/<%=  %>"><%= u.unitName %></a></li>
+              <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
             <% }) %>
           </ul>
         </td>
-        <td>Image example</td>
+        <td><img src="<%= squad.img %>" alt="squad-img"></td>
       </tr> 
   </tbody>
 </table>

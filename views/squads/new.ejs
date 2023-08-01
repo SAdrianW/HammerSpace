@@ -4,7 +4,7 @@
 
 <section>
     <h3>Add Squad to Portfolio</h3>
-    <form id="new-squad" method="POST" action="/squads">
+    <form id="new-squad" method="POST" enctype="multipart/form-data" action="/squads">
       <label>Squad name</label>
         <input type="text" name="squadName">
       <label>Genre</label>
@@ -27,6 +27,9 @@
                 <option value="<%= a._id %>"><%= a.armyName %></option>
             <% }) %>
         </select>
+        <div>
+            <input type="file" name="image">
+          </div>
       <button>Add Squad</button>      
     </form>
   </section>

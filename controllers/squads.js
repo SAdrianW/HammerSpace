@@ -1,6 +1,8 @@
 const Portfolio = require('../models/portfolio');
 const Army = require('../models/army');
 const Squad = require('../models/squad');
+const cloudinary = require('../utils/cloudinary'); //
+const upload = require('../utils/multer'); //
 
 module.exports = {
     create,
@@ -13,9 +15,12 @@ module.exports = {
 
 async function create(req, res) {
     try {
+        const result = await cloudinary.uploader.upload(req.file.path);
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
+        req.body.img = result.secure_url;
+        req.body.cloudinary_id = result.public_id;
         const squad = await Squad.create(req.body);
         const army = await Army.findById(req.body.army);
         army.squads.push(squad._id);
@@ -39,7 +44,7 @@ async function index(req, res) {
 
 async function show(req, res) {                                 
     const squad = await Squad.findById(req.params.id).populate('units');    
-    res.render('squads/show', {title: 'squad Details', squad});
+    res.render('squads/show', {title: 'Squad Details', squad});
 }
 
 // .populate('units') 

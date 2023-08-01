@@ -30,7 +30,10 @@ const squadSchema = new Schema ({
     leader: String, 
     description: String, 
     equipment: String,
-    // units: unitSchema
+    img: String,
+    cloudinary_id: {
+        type: String
+    }
 }, {
     timestamps: true
 });
