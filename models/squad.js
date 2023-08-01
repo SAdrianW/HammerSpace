@@ -23,7 +23,7 @@ const squadSchema = new Schema ({
     },        
     units: [{
         type: Schema.Types.ObjectId,
-        ref: 'Units',
+        ref: 'Unit',
     }],
     genre: String,
     status: String,

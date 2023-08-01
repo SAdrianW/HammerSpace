@@ -13,4 +13,8 @@ router.get('/squads/new', ensureLoggedIn, squadsController.new);
 // POST /:id/squads
 router.post('/squads', squadsController.create);
 
+// GET /squads/:id (show func)
+router.get('/squads/:id', squadsController.show);
+
+
 module.exports = router;

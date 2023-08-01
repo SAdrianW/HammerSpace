@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+
+
+<section>
+    <h3>Add Unit to Squad</h3>
+    <form id="new-unit" method="POST" action="/units">
+      <label>Unit name</label>
+        <input type="text" name="unitName">
+      <label>Genre</label>
+        <input type="text" name="genre">
+      <label>Status</label>
+        <select name="status">
+            <option value="Finished">Finished</option>
+            <option value="WIP">WIP</option>
+            <option value="Old">Old</option>
+        </select>
+      <label>Leader</label>
+        <input type="text" name="leader">
+      <label>Equipment</label>
+        <textarea name="equipment"></textarea>
+      <label>Description</label>
+        <textarea name="description"></textarea>
+      <label>Army</label>
+        <select name="army">
+            <% user.armies.forEach(a => { %>
+                <option value="<%= a._id %>"><%= a.armyName %></option>
+            <% }) %>
+        </select>
+      <label>Squad</label>
+        <select name="squad">
+            <% user.armies.squads.forEach(s => { %>
+                <option value="<%= s._id %>"><%= s.squadName %></option>
+            <% }) %>
+        </select>
+        <!-- above option allows all squads from all armies TODO fix -->
+      <button>Add Unit</button>      
+    </form>
+  </section>
+  
+
+<%- include('../partials/footer') %>

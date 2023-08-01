@@ -28,7 +28,12 @@
               <% }) %>
             </ul>            
           </td>
-          <td><%= a.units %></td>
+          <td>
+            <ul>
+              <% a.units.forEach((u) => { %>
+                <li><a href="/"><%= u.unitName %></a></li>
+              <% }) %>
+            </ul></td>
           <td><%= a.description %></td>
           <td>Image example</td>
           <td><%= a.userName %></td>

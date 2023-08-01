@@ -32,13 +32,13 @@ async function newArmy(req, res) {
 }
 
 async function index(req, res) {
-    const armies = await Army.find({});
+    const armies = await Army.find({}).populate('squads').populate('units');
     // console.log(armies)
     res.render('armies/index', { title: 'All Armies', armies})
 }
 
 async function show(req, res) {                                 
-    const army = await Army.findById(req.params.id).populate('squads');    
+    const army = await Army.findById(req.params.id).populate('squads').populate('units');    
     res.render('armies/show', {title: 'Army Details', army});
 }
 

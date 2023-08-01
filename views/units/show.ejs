@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+
+<table id="unit-details">
+  <thead>
+    <h3><%= unit.unitName %></h3>
+    <tr>
+      <th>Genre</th>
+      <th>User Name</th>
+      <th>Leader</th>
+      <th>Description</th>
+      <th>Equipment</th>
+      <th>Images</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= unit.genre %></td>
+        <td><%= unit.userName %></td>
+        <td><%= unit.leader %></td>
+        <td><%= unit.description %></td>
+        <td><%= unit.equipment %></td>       
+        <td>Image example</td>
+      </tr> 
+  </tbody>
+</table>
+  
+
+
+<%- include('../partials/footer') %>

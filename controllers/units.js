@@ -1,10 +1,11 @@
 const Portfolio = require('../models/portfolio');
 const Army = require('../models/army');
 const Squad = require('../models/squad');
+const Unit = require('../models/unit');
 
 module.exports = {
     create,
-    new: newSquad,
+    new: newUnit,
     index, 
     show,
     // delete: deleteArmy
@@ -16,9 +17,13 @@ async function create(req, res) {
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
-        const squad = await Squad.create(req.body);
+        const unit = await Unit.create(req.body);
         const army = await Army.findById(req.body.army);
+        const squad = await Squad.findById(req.body.squad);
+        squad.units.push(unit._id);
+        army.units.push(unit._id);
         army.squads.push(squad._id);
+        await squad.save();
         await army.save();
     } catch (err) {
         console.log(err);
@@ -26,24 +31,20 @@ async function create(req, res) {
     res.redirect('/armies');
 }
 
-// go to page that shows form to make new army
-async function newSquad(req, res) {
+// go to page that shows form to make new unit
+async function newUnit(req, res) {
     req.user.armies = await Army.find({user: req.user._id})
-    res.render('squads/new', { title: 'New Squad'})
+    req.user.armies.squads = await Squad.find({user: req.user._id})
+
+    res.render('units/new', { title: 'New Unit'})
 }
 
 async function index(req, res) {
-    const squads = await Squad.find({});
-    res.render('squads/index', { title: 'All Squads', squads})
+    const unit = await Unit.find({});
+    res.render('units/index', { title: 'All Units', unit})
 }
 
 async function show(req, res) {                                 
-    const squad = await Squad.findById(req.params.id).populate('units');    
-    res.render('squads/show', {title: 'squad Details', squad});
+    const unit = await Unit.findById(req.params.id);    
+    res.render('units/show', {title: 'Unit Details', unit});
 }
-
-// .populate('units') 
-// put back into show once units are made TODO
-
-
-

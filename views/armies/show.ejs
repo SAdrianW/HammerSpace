@@ -24,7 +24,7 @@
           <td>
             <ul>
               <% army.squads.forEach((s) => { %>
-                <li><a href="/armies/<%=  %>"><%= s.squadName %></a></li>
+                <li><a href="/squads/<%= s._id %>"><%= s.squadName %></a></li>
               <% }) %>
             </ul>
           </td>
