@@ -38,7 +38,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {                                 
-    const army = await Army.findById(req.params.id).populate('squads', 'units');    
+    const army = await Army.findById(req.params.id).populate('squads');    
     res.render('armies/show', {title: 'Army Details', army});
 }
 

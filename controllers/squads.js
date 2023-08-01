@@ -17,7 +17,7 @@ async function create(req, res) {
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
         const squad = await Squad.create(req.body);
-        const army = await Army.findById(req.body.portfolio);
+        const army = await Army.findById(req.body.army);
         army.squads.push(squad._id);
         await army.save();
     } catch (err) {
