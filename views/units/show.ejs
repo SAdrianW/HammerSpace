@@ -7,7 +7,6 @@
     <tr>
       <th>Genre</th>
       <th>User Name</th>
-      <th>Leader</th>
       <th>Description</th>
       <th>Equipment</th>
       <th>Images</th>
@@ -17,10 +16,9 @@
       <tr>
         <td><%= unit.genre %></td>
         <td><%= unit.userName %></td>
-        <td><%= unit.leader %></td>
         <td><%= unit.description %></td>
         <td><%= unit.equipment %></td>       
-        <td>Image example</td>
+        <td><img src="<%= unit.img %>" alt="unit-img"></td>       
       </tr> 
   </tbody>
 </table>

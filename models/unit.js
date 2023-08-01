@@ -26,7 +26,11 @@ const unitSchema = new Schema ({
     status: String,
     equipment: String,
     leader: String,
-    description: String
+    description: String,
+    img: String,
+    cloudinary_id: {
+        type: String
+    }
 }, {
     timestamps: true
 });

@@ -31,7 +31,7 @@
           <td>
             <ul>
               <% army.units.forEach((u) => { %>
-                <li><a href="/armies/<%=  %>"><%= u.unitName %></a></li>
+                <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
               <% }) %>
             </ul>
             <td><%= army.leader %></td>
@@ -44,6 +44,7 @@
 
 <br>
 
-
+ <!-- SHOW -->
+ <img src="<%= user.img %>">
 
 <%- include('../partials/footer') %>

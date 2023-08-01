@@ -9,7 +9,10 @@ const userSchema = new Schema({
     },
     email: String,
     avatar: String,
-    
+    img: String,
+    cloudinary_id: {
+        type: String
+    }
 }, {
     timestamps: true
 });

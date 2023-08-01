@@ -31,7 +31,7 @@
           <td>
             <ul>
               <% a.units.forEach((u) => { %>
-                <li><a href="/"><%= u.unitName %></a></li>
+                <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
               <% }) %>
             </ul></td>
           <td><%= a.description %></td>
