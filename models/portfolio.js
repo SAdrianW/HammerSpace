@@ -20,11 +20,10 @@ const portfolioSchema = new Schema ({
     armies: [{ type: Schema.Types.ObjectId, ref: 'Army'}],    //String,     // embeded within? no, use refeerencing instead v vv
     squads: String,     // does not display on pf page
     units: String,      // does not display on pf page
-    // coverImg: String
-    // will cover img go here? TBD later
-    // armies: armySchema,      //
-    // squads: squadSchema,     //  ^ v not being used, not embedding
-    // units: unitSchema        // 
+    img: String,
+    cloudinary_id: {
+        type: String
+    }
 }, {
     timestamps: true
 });

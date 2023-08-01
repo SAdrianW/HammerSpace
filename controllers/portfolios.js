@@ -1,4 +1,6 @@
 const Portfolio = require('../models/portfolio');
+const cloudinary = require('../utils/cloudinary'); //
+const upload = require('../utils/multer'); //
 
 module.exports = {
     index,
@@ -19,10 +21,12 @@ async function newPortfolio(req, res) {
 
 async function create(req, res) {
     try {
-        // console.log(req.user)
+        const result = await cloudinary.uploader.upload(req.file.path);        req.body.user = req.user._id;
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
+        req.body.img = result.secure_url; // 
+        req.body.cloudinary_id = result.public_id; // 
         await Portfolio.create(req.body);
         res.redirect('/portfolios') // TODO update to pf just created
     } catch (err) {

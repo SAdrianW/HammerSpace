@@ -27,7 +27,7 @@
       <tr>
         <td><%= pf.genre %></td>
         <td><a href="/portfolios/<%= pf._id %>"><%= pf.pfName %></a></td>
-        <td>Image example</td>
+        <td><img src="<%= pf.img %>" alt="pf-img"></td>
         <td>
           <ul>
             <% pf.armies.forEach((a) => { %>
