@@ -1,5 +1,7 @@
 const Portfolio = require('../models/portfolio');
 const Army = require('../models/army');
+const cloudinary = require('../utils/cloudinary'); //
+const upload = require('../utils/multer'); //
 
 module.exports = {
     create,
@@ -12,9 +14,12 @@ module.exports = {
 
 async function create(req, res) {
     try {
+        const result = await cloudinary.uploader.upload(req.file.path);
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
+        req.body.img = result.secure_url; // 
+        req.body.cloudinary_id = result.public_id; //
         const army = await Army.create(req.body);
         const portfolio = await Portfolio.findById(req.body.portfolio);
         portfolio.armies.push(army._id);

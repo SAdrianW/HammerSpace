@@ -20,8 +20,10 @@ const armySchema = new Schema ({
     description: String,
     genre: String,
     status: String,
-    // squads: squadSchema,
-    // units: unitSchema
+    img: String,
+    cloudinary_id: {
+        type: String
+    }
 }, {
     timestamps: true
 });
