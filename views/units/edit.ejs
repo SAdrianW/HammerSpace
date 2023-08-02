@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+
+
+<section>
+    <h3></h3>
+    <form id="edit-unit" method="POST" action="/units/<%= unit._id %>?_method=PUT">
+      <label>Unit name</label>
+        <input type="text" name="unitName" value="<%= unit.unitName %>">
+      <label>Genre</label>
+        <input type="text" name="genre" value="<%= unit.genre %>">
+      <label>Status</label>
+        <select name="status">
+            <option value="Finished">Finished</option>
+            <option value="WIP">WIP</option>
+            <option value="Old">Old</option>
+        </select>
+        <label>Description</label>
+          <textarea name="description"> <%= unit.description %> </textarea>
+        <label>Equipment</label>
+          <textarea name="equipment"> <%= unit.equipment %> </textarea>
+      <label>Army</label>
+        <select name="army">
+            <% user.armies.forEach(a => { %>
+                <option value="<%= a._id %>"><%= a.armyName %></option>
+            <% }) %>
+        </select>
+      <label>Squad</label>
+        <select name="squad">
+            <% user.armies.squads.forEach(s => { %>
+                <option value="<%= s._id %>"><%= s.squadName %></option>
+            <% }) %>
+        </select>
+        <!-- above option allows all squads from all armies TODO fix -->
+        <!-- <div>
+          <input type="file" name="image">
+        </div> -->
+        <!-- need to make seperate img upload editor -->
+        <button type="submit">Edit Unit</button>      
+    </form>
+  </section>
+  
+
+
+<%- include('../partials/footer') %>

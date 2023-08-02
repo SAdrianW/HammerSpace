@@ -4,13 +4,16 @@ const Squad = require('../models/squad');
 const Unit = require('../models/unit');
 const cloudinary = require('../utils/cloudinary'); //
 const upload = require('../utils/multer'); //
+const unit = require('../models/unit');
 
 module.exports = {
     create,
     new: newUnit,
     index, 
     show,
-    delete: deleteUnit
+    delete: deleteUnit,
+    edit,
+    update
 }
 
 
@@ -60,5 +63,26 @@ async function deleteUnit(req, res) {
     if (!unit) return res.redirect('/portfolios');
     res.redirect('/armies');
     unit.deleteOne();
+}
+
+async function edit(req, res) {
+    req.user.armies = await Army.find({user: req.user._id})
+    req.user.armies.squads = await Squad.find({user: req.user._id})
+    const unit = await Unit.findById(req.params.id);
+    console.log(req.body);
+    res.render('units/edit', { title: 'Edit Unit', unit})
+}
+
+async function update(req, res) {
+    console.log(req.body);
+    try {
+        const update = { description: req.body.description }
+    let unit = await Unit.findByIdAndUpdate(req.params.id, req.body);
+    console.log(unit);
+    // await Unit.update(req.params.id, req.body);
+    unit.save();
+    res.redirect(`/units/${req.params.id}`);
+    } catch(err) {}
+    
 }
 

@@ -5,6 +5,7 @@ const unitsController = require('../controllers/units');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 const cloudinary = require('../utils/cloudinary');
 const upload = require('../utils/multer');
+const unit = require('../models/unit');
 
 // GET /units
 router.get('/units', unitsController.index);
@@ -13,7 +14,7 @@ router.get('/units', unitsController.index);
 router.get('/units/new', ensureLoggedIn, unitsController.new);
 
 // POST /:id/units
-router.post('/units', upload.single('image'), unitsController.create);
+router.post('/units', upload.array('image', 10), unitsController.create);
 
 // GET /units/:id (show func)
 router.get('/units/:id', unitsController.show);
@@ -21,5 +22,9 @@ router.get('/units/:id', unitsController.show);
 // DELETE /units/:id
 router.delete('/units/:id', ensureLoggedIn, unitsController.delete);
 
+// GET /units/:id/edit
+router.get('/units/:id/edit', ensureLoggedIn, unitsController.edit);
+// PUT /units/:id
+router.put('/units/:id', ensureLoggedIn, unitsController.update);
 
 module.exports = router;

@@ -35,4 +35,4 @@ const unitSchema = new Schema ({
     timestamps: true
 });
 
-module.exports =  mongoose.model('Unit', unitSchema);
+module.exports = mongoose.model('Unit', unitSchema);
