@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+
+
+<section>
+    <h3>Edit Squad data</h3>
+    <form id="edit-squad" method="POST" action="/squads/<%= squad._id %>?_method=PUT">
+      <label>Squad name</label>
+        <input type="text" name="squadName" value="<%= squad.squadName %>">
+      <label>Genre</label>
+        <input type="text" name="genre" value="<%= squad.genre %>">
+      <label>Status</label>
+        <select name="status">
+            <option value="Finished">Finished</option>
+            <option value="WIP">WIP</option>
+            <option value="Old">Old</option>
+        </select>
+      <label>Leader</label>
+        <input type="text" name="leader" value="<%= squad.leader %>">
+      <label>Equipment</label>
+        <textarea name="equipment"><%= squad.equipment %></textarea>
+      <label>Description</label>
+        <textarea name="description"><%= squad.description %></textarea>
+      <label>Army</label>
+        <select name="army">
+            <% user.armies.forEach(a => { %>
+                <option value="<%= a._id %>"><%= a.armyName %></option>
+            <% }) %>
+        </select>
+      <button>Edit Squad</button>      
+    </form>
+  </section>
+  
+
+<%- include('../partials/footer') %>

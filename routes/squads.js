@@ -21,4 +21,9 @@ router.get('/squads/:id', squadsController.show);
 // DELETE /squads/:id
 router.delete('/squads/:id', ensureLoggedIn, squadsController.delete);
 
+// GET /squads/:id/edit
+router.get('/squads/:id/edit', ensureLoggedIn, squadsController.edit);
+// PUT /squads/:id
+router.put('/squads/:id', ensureLoggedIn, squadsController.update);
+
 module.exports = router;
