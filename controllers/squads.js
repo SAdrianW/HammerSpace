@@ -9,7 +9,7 @@ module.exports = {
     new: newSquad,
     index, 
     show,
-    // delete: deleteArmy
+    delete: deleteSquad
 }
 
 
@@ -47,8 +47,13 @@ async function show(req, res) {
     res.render('squads/show', {title: 'Squad Details', squad});
 }
 
-// .populate('units') 
-// put back into show once units are made TODO
+async function deleteSquad(req, res) {
+    const squad = await Squad.findById(req.params.id);
+    console.log(squad);
+    if (!squad) return res.redirect('/portfolios');
+    res.redirect('/armies');
+    squad.deleteOne();
+}
 
 
 

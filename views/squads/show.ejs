@@ -20,7 +20,8 @@
         <td><%= squad.userName %></td>
         <td><%= squad.leader %></td>
         <td><%= squad.description %></td>
-        <td><%= squad.equipment %></td>       
+        <td><%= squad.equipment %></td>
+        <td></td>       
         <td>
           <ul>
             <% squad.units.forEach((u) => { %>
@@ -29,6 +30,13 @@
           </ul>
         </td>
         <td><img src="<%= squad.img %>" alt="squad-img"></td>
+        <td>
+          <% if (user?._id.equals(squad.user)) { %>
+            <form action="/squads/<%= squad._id %>?_method=DELETE" method="POST">
+              <button type="submit">&times;</button>
+            </form>
+          <% } %>
+        </td>       
       </tr> 
   </tbody>
 </table>

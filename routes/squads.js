@@ -18,5 +18,7 @@ router.post('/squads', upload.single('image'), squadsController.create);
 // GET /squads/:id (show func)
 router.get('/squads/:id', squadsController.show);
 
+// DELETE /squads/:id
+router.delete('/squads/:id', ensureLoggedIn, squadsController.delete);
 
 module.exports = router;

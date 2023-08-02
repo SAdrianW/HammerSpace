@@ -19,7 +19,7 @@ router.post('/units', upload.single('image'), unitsController.create);
 router.get('/units/:id', unitsController.show);
 
 // DELETE /units/:id
-router.delete('/units/:id', ensureLoggedIn, unitsController.delete)
+router.delete('/units/:id', ensureLoggedIn, unitsController.delete);
 
 
 module.exports = router;
