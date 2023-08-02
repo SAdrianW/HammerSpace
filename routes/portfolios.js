@@ -19,5 +19,8 @@ router.post('/', upload.single('image'), portfoliosController.create)
 // GET /portfolios/:id (show func)
 router.get('/:id', portfoliosController.show);
 
+// DELETE /portfolios/:id
+router.delete('/:id', ensureLoggedIn, portfoliosController.delete);
+
 
 module.exports = router;

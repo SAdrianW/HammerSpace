@@ -51,7 +51,7 @@ async function deleteSquad(req, res) {
     const squad = await Squad.findById(req.params.id);
     console.log(squad);
     if (!squad) return res.redirect('/portfolios');
-    res.redirect('/armies');
+    // res.redirect('/armies');
     squad.deleteOne();
 }
 

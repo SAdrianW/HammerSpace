@@ -17,4 +17,8 @@ router.post('/armies', upload.single('image'), armiesController.create);
 // GET /armies/:id (show func)
 router.get('/armies/:id', armiesController.show);
 
+// DELETE /armies/:id
+router.delete('/armies/:id', ensureLoggedIn, armiesController.delete);
+
+
 module.exports = router;

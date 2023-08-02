@@ -13,6 +13,7 @@
         <th>Armies</th>
         <th>Squads</th>
         <th>Units</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +41,13 @@
                 <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
               <% }) %>
             </ul>
+            <td>
+              <% if (user?._id.equals(portfolio.user)) { %>
+                <form action="/portfolios/<%= portfolio._id %>?_method=DELETE" method="POST">
+                  <button type="submit">&times;</button>
+                </form>
+              <% } %>
+            </td>       
           </td>
         </tr> 
     </tbody>

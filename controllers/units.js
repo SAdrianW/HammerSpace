@@ -56,7 +56,7 @@ async function show(req, res) {
 
 async function deleteUnit(req, res) {
     const unit = await Unit.findById(req.params.id);
-    console.log(unit);
+    // console.log(unit);
     if (!unit) return res.redirect('/portfolios');
     res.redirect('/armies');
     unit.deleteOne();

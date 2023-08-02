@@ -6,7 +6,8 @@ module.exports = {
     index,
     new: newPortfolio,
     create,
-    show
+    show,
+    delete: deletePortfolio
 };
 
 async function index(req, res) {
@@ -39,5 +40,13 @@ async function show(req, res) {
     const portfolio = await Portfolio.findById(req.params.id).populate('armies');    
     res.render('portfolios/showPf', {title: 'Portfolio Details', portfolio});
     // console.log(portfolio);
+}
+
+async function deletePortfolio(req, res) {
+    const portfolio = await Portfolio.findById(req.params.id);
+    // console.log(portfolio);
+    if (!portfolio) return res.redirect('/');
+    res.redirect('/users');
+    portfolio.deleteOne();
 }
 
