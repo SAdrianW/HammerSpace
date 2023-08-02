@@ -18,8 +18,8 @@ const portfolioSchema = new Schema ({
     },
     genre: String,
     armies: [{ type: Schema.Types.ObjectId, ref: 'Army'}],    //String,     // embeded within? no, use refeerencing instead v vv
-    squads: String,     // does not display on pf page
-    units: String,      // does not display on pf page
+    squads: [{ type: Schema.Types.ObjectId, ref: 'Army'}],     
+    units: [{ type: Schema.Types.ObjectId, ref: 'Army'}],      
     img: String,
     cloudinary_id: {
         type: String

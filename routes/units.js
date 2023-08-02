@@ -18,5 +18,8 @@ router.post('/units', upload.single('image'), unitsController.create);
 // GET /units/:id (show func)
 router.get('/units/:id', unitsController.show);
 
+// DELETE /units/:id
+router.delete('/units/:id', ensureLoggedIn, unitsController.delete)
+
 
 module.exports = router;

@@ -10,7 +10,7 @@ module.exports = {
     new: newUnit,
     index, 
     show,
-    // delete: deleteArmy
+    delete: deleteUnit
 }
 
 
@@ -53,3 +53,12 @@ async function show(req, res) {
     const unit = await Unit.findById(req.params.id);    
     res.render('units/show', {title: 'Unit Details', unit});
 }
+
+async function deleteUnit(req, res) {
+    const unit = await Unit.findById(req.params.id);
+    console.log(unit);
+    if (!unit) return res.redirect('/portfolios');
+    res.redirect('/armies');
+    unit.deleteOne();
+}
+

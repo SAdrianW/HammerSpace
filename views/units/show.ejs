@@ -10,6 +10,7 @@
       <th>Description</th>
       <th>Equipment</th>
       <th>Images</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +19,14 @@
         <td><%= unit.userName %></td>
         <td><%= unit.description %></td>
         <td><%= unit.equipment %></td>       
-        <td><img src="<%= unit.img %>" alt="unit-img"></td>       
+        <td><img src="<%= unit.img %>" alt="unit-img"></td>
+        <td>
+          <% if (user?._id.equals(unit.user)) { %>
+            <form action="/units/<%= unit._id %>?_method=DELETE" method="POST">
+              <button type="submit">&times;</button>
+            </form>
+          <% } %>
+        </td>       
       </tr> 
   </tbody>
 </table>

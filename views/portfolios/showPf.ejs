@@ -11,6 +11,8 @@
         <th>Cover Image</th>
         <th>User Name</th>
         <th>Armies</th>
+        <th>Squads</th>
+        <th>Units</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +24,20 @@
             <ul>
               <% portfolio.armies.forEach((a) => { %>
                 <li><a href="/armies/<%= a._id %>"><%= a.armyName %></a></li>
+              <% }) %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% portfolio.squads.forEach((s) => { %>
+                <li><a href="/squads/<%= s._id %>"><%= s.squadName %></a></li>
+              <% }) %>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <% portfolio.units.forEach((u) => { %>
+                <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
               <% }) %>
             </ul>
           </td>
