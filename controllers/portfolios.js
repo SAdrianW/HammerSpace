@@ -1,4 +1,7 @@
 const Portfolio = require('../models/portfolio');
+const Army = require('../models/army');
+const Squad = require('../models/squad');
+const Unit = require('../models/unit');
 const cloudinary = require('../utils/cloudinary'); //
 const upload = require('../utils/multer'); //
 
@@ -7,7 +10,9 @@ module.exports = {
     new: newPortfolio,
     create,
     show,
-    delete: deletePortfolio
+    delete: deletePortfolio,
+    edit,
+    update
 };
 
 async function index(req, res) {
@@ -50,3 +55,17 @@ async function deletePortfolio(req, res) {
     portfolio.deleteOne();
 }
 
+async function edit(req, res) {
+    req.user.armies = await Army.find({user: req.user._id})
+    req.user.armies.squads = await Squad.find({user: req.user._id})
+    const portfolio = await Portfolio.findById(req.params.id);
+    res.render('portfolios/edit', { title: 'Edit Portfolio', portfolio})
+}
+
+async function update(req, res) {
+    try {
+    let portfolio = await Portfolio.findByIdAndUpdate(req.params.id, req.body);
+    portfolio.save();
+    res.redirect(`/portfolios/${req.params.id}`);
+    } catch(err) {}
+}

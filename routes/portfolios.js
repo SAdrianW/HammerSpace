@@ -22,5 +22,10 @@ router.get('/:id', portfoliosController.show);
 // DELETE /portfolios/:id
 router.delete('/:id', ensureLoggedIn, portfoliosController.delete);
 
+// GET /portfolios/:id/edit
+router.get('/:id/edit', ensureLoggedIn, portfoliosController.edit);
+// PUT /portfolios/:id
+router.put('/:id', ensureLoggedIn, portfoliosController.update);
+
 
 module.exports = router;
