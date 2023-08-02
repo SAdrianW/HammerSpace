@@ -3,7 +3,7 @@
 
 
 <section>
-    <h3>Edit Unit data</h3>
+  <h3>Edit Unit data</h3>
     <form id="edit-unit" method="POST" action="/units/<%= unit._id %>?_method=PUT">
       <label>Unit name</label>
         <input type="text" name="unitName" value="<%= unit.unitName %>">
@@ -35,10 +35,10 @@
         <!-- <div>
           <input type="file" name="image">
         </div> -->
-        <!-- need to make seperate img upload editor -->
+        <!-- need to make seperate img upload form -->
         <button type="submit">Edit Unit</button>      
     </form>
-  </section>
+</section>
   
 
 

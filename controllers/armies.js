@@ -8,7 +8,9 @@ module.exports = {
     new: newArmy,
     index, 
     show,
-    delete: deleteArmy
+    delete: deleteArmy,
+    edit,
+    update
 }
 
 
@@ -55,3 +57,18 @@ async function deleteArmy(req, res) {
     army.deleteOne();
 }
 
+
+
+async function edit(req, res) {
+    req.user.portfolios = await Portfolio.find({user: req.user._id})
+    const army = await Army.findById(req.params.id);
+    res.render('armies/edit', { title: 'Edit Army', army})
+}
+    
+async function update(req, res) {
+    try {
+    let army = await Army.findByIdAndUpdate(req.params.id, req.body);
+    army.save();
+    res.redirect(`/armies/${req.params.id}`);
+    } catch(err) {}
+}

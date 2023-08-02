@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+
+
+<section>
+  <h3>Edit Army data</h3>
+    <form id="new-army" method="POST" action="/armies/<%= army._id %>?_method=PUT">
+      <label>Army name</label>
+        <input type="text" name="armyName" value="<%= army.armyName %>">
+      <label>Genre</label>
+        <input type="text" name="genre" value="<%= army.genre %>">
+      <label>Leader</label>
+        <input type="text" name="leader" value="<%= army.leader %>">
+      <label>Description</label>
+        <textarea name="description"><%= army.description %></textarea>
+      <label>Status</label>
+        <select name="status">
+          <option value="Finished">Finished</option>
+          <option value="WIP">WIP</option>
+          <option value="Old">Old</option>
+        </select>
+      <label>Portfolio</label>
+        <select name="portfolio">
+          <% user.portfolios.forEach(p => { %>
+              <option value="<%= p._id %>"><%= p.pfName %></option>
+          <% }) %>
+        </select>
+      <button>Edit Army</button>      
+    </form>
+</section>
+  
+<!-- <div>
+  <input type="file" name="image">
+</div> -->
+
+<%- include('../partials/footer') %>

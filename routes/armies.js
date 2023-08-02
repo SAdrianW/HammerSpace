@@ -20,5 +20,10 @@ router.get('/armies/:id', armiesController.show);
 // DELETE /armies/:id
 router.delete('/armies/:id', ensureLoggedIn, armiesController.delete);
 
+// GET /armies/:id/edit
+router.get('/armies/:id/edit', ensureLoggedIn, armiesController.edit);
+// PUT /armies/:id
+router.put('/armies/:id', ensureLoggedIn, armiesController.update);
+
 
 module.exports = router;
