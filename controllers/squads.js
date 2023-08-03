@@ -52,7 +52,7 @@ async function show(req, res) {
 
 async function deleteSquad(req, res) {
     const squad = await Squad.findById(req.params.id);
-    console.log(squad);
+    // console.log(squad);
     if (!squad) return res.redirect('/portfolios');
     // res.redirect('/armies');
     squad.deleteOne();

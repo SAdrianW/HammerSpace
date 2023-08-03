@@ -6,7 +6,7 @@
 <!-- should this be titles something else? -->
 
 <br>
-<button class="btn btn-lg btn-warning">
+<button class="btn btn-lg btn-dark">
   <a class="text-primary" href="/portfolios/new">New</a>
 </button>
 <button class="btn btn-lg btn-info">
@@ -15,33 +15,36 @@
 <br>
 <br>
 
-<table class="table" id="portfolios-list">
-  <thead>
-    <tr>
-      <th>Genre</th>
-      <th>Portfolios (name)</th>
-      <th>Cover Image</th>
-      <th>Armies</th>
-      <th>User Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% portfolios.forEach(function(pf) { %>
+<div class="bg-transparent">
+
+  <table class="table bg-transparent" id="portfolios-list">
+    <thead>
       <tr>
-        <td><%= pf.genre %></td>
-        <td><a href="/portfolios/<%= pf._id %>"><%= pf.pfName %></a></td>
-        <td><img src="<%= pf.img %>" class="img-thumbnail" width = "400" height = "400" alt="pf-img"></td>
-        <td>
-          <ul>
-            <% pf.armies.forEach((a) => { %>
-              <li><a href="/armies/<%= a._id %>"><%= a.armyName %></a></li>
-            <% }) %>
-          </ul>
-        <td><%= pf.userName %></td>
-      </tr> 
-    <% }) %>  
-  </tbody>
-</table>
+        <th>Genre</th>
+        <th>Portfolios (name)</th>
+        <th>Cover Image</th>
+        <th>Armies</th>
+        <th>User Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% portfolios.forEach(function(pf) { %>
+        <tr>
+          <td><%= pf.genre %></td>
+          <td><a href="/portfolios/<%= pf._id %>"><%= pf.pfName %></a></td>
+          <td><img src="<%= pf.img %>" class="img-thumbnail" width = "400" height = "400" alt="pf-img"></td>
+          <td>
+            <ul>
+              <% pf.armies.forEach((a) => { %>
+                <li><a href="/armies/<%= a._id %>"><%= a.armyName %></a></li>
+              <% }) %>
+            </ul>
+          <td><%= pf.userName %></td>
+        </tr> 
+      <% }) %>  
+    </tbody>
+  </table>
+</div>
 
 
 <%- include('./partials/footer') %>

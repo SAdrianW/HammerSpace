@@ -1,18 +1,51 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../images/steel-diamond-plate.jpg");
+  background-size: cover;
+  font-family: 'Tektur', cursive;
+  color: rgb(245, 140, 2);
+  text-shadow: 1px 1px 2px black;
+  font-size: large;
+}
+
+.title {
+  color: rgb(245, 107, 2);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+#HammerSpace {
+  color: rgb(140, 0, 210);
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(0, 75, 255);
+  text-shadow: 1px 1px 2px rgb(110, 220, 245);
 }
 
+nav {
+  background-image: url("../images/steel-checker-dark-plate.jpg");
+  background-size: cover;
+}
 
+table.table {
+  font-size: large;
+  /* color: rgb(50, 100, 0); */
+  background-image: url("../images/steel-scratched-plate.jpg");
+  background-size: cover;
+}
 
+table.table td,table.table th {
+  background-color: transparent!important;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(50, 100, 0);
+}
 
-
-
-
+table.table thead {
+  text-shadow: 1px 1px 1px rgb(70, 140, 0);
+  font-weight: 800;
+}
 
 .login {
   display: flex;
@@ -23,4 +56,9 @@ a {
 
 .login img {
   height: 30px;
+}
+
+footer {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(220, 220, 220);
 }

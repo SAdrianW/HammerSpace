@@ -34,7 +34,7 @@ async function create(req, res, next) {
         //     cloudinary_id: result.public_id
         // })
         // await unit.save();
-        const result = await cloudinary.uploader.upload(req.file.path); //
+        const result = await cloudinary.uploader.upload(req.file.path); 
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;

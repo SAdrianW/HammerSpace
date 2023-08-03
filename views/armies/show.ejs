@@ -16,7 +16,6 @@
         <th>Squads</th>
         <th>Units</th>
         <th>Leader</th>
-        <th>Description</th>
         <th></th>
       </tr>
     </thead>
@@ -39,7 +38,6 @@
               <% }) %>
             </ul>
             <td><%= army.leader %></td>
-            <td><%= army.description %></td>
             <td>
                 <% if (user?._id.equals(army.user)) { %>
                   <form action="/armies/<%= army._id %>?_method=DELETE" method="POST">
@@ -50,6 +48,14 @@
           </td>
         </tr> 
     </tbody>
+    <table>
+        <thead>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <td><%= army.description %></td>
+        </tbody>
+    </table>
   </table>
 </section>
 

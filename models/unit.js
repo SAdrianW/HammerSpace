@@ -27,7 +27,7 @@ const unitSchema = new Schema ({
     equipment: String,
     leader: String,
     description: String,
-    img: [{type: String}],
+    img: String,
     cloudinary_id: {
         type: String
     }

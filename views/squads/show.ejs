@@ -23,13 +23,19 @@
               <td><%= squad.userName %></td>
               <td><%= squad.leader %></td>
               <td>
+                <ul>
+                  <% squad.units.forEach((u) => { %>
+                    <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
+                  <% }) %>
+                </ul>
+              </td>       
+              <td>
                   <% if (user?._id.equals(squad.user)) { %>
                     <form action="/squads/<%= squad._id %>?_method=DELETE" method="POST">
                       <button type="submit">&times;</button>
                     </form>
                     <% } %>
               </td>       
-              <td></td>       
             </tr> 
         </tbody>
         <table class="table">
