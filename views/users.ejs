@@ -2,7 +2,7 @@
 
 <!-- <h1>Users</h1> -->
 
-<table id="user-list">
+<table class="table" id="user-list">
   <thead>
     <tr>
       <th>User Avatar</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% users.forEach(function(u) { %>
       <tr>
-          <td><img src="<%= u.avatar %>"/></td>
+          <td><img class="img-thumbnail" width="200" height="200" src="<%= u.avatar %>"/></td>
           <td><%= u.name %></td>
             <div>
               <td>

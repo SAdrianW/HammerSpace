@@ -4,31 +4,49 @@
 
 <section>
     <h3>Add Army to Portfolio</h3>
-    <form id="new-army" method="POST" enctype="multipart/form-data" action="/armies">
-      <label>Army name</label>
-      <input type="text" name="armyName">
-      <label>Genre</label>
-      <input type="text" name="genre">
-      <label>Leader</label>
-        <input type="text" name="leader">
-      <label>Description</label>
-        <textarea name="description"></textarea>
-      <label>Status</label>
-      <select name="status">
-        <option value="Finished">Finished</option>
-        <option value="WIP">WIP</option>
-        <option value="Old">Old</option>
-      </select>
-      <label>Portfolio</label>
-      <select name="portfolio">
-        <% user.portfolios.forEach(p => { %>
-            <option value="<%= p._id %>"><%= p.pfName %></option>
-        <% }) %>
-      </select>
-      <div>
-        <input type="file" name="image">
-      </div>
-      <button>Add Army</button>      
+
+    <form class="row g-3" id="new-army" method="POST" enctype="multipart/form-data" action="/armies">
+        <div class="col-md-4">
+            <label class="form-label">Army name</label>
+              <input class="form-control" type="text" name="armyName">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Genre</label>
+              <input class="form-control" type="text" name="genre">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Leader</label>
+                <input class="form-control" type="text" name="leader">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Description</label>
+              <textarea class="form-control" name="description"></textarea>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Status</label>
+                <select class="form-control" name="status">
+                <option value="Finished">Finished</option>
+                <option value="WIP">WIP</option>
+                <option value="Old">Old</option>
+                </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Portfolio</label>
+            <select class="form-control" name="portfolio">
+              <% user.portfolios.forEach(p => { %>
+                  <option value="<%= p._id %>"><%= p.pfName %></option>
+              <% }) %>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <label class="form-label">Cover Image</label>
+                    <input class="form-control" type="file" name="image">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-lg btn-success">Add Army</button>      
+        </div>
     </form>
   </section>
   

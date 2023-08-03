@@ -4,33 +4,53 @@
 
 <section>
     <h3>Add Squad to Portfolio</h3>
-    <form id="new-squad" method="POST" enctype="multipart/form-data" action="/squads">
-      <label>Squad name</label>
-        <input type="text" name="squadName">
-      <label>Genre</label>
-        <input type="text" name="genre">
-      <label>Status</label>
-        <select name="status">
-            <option value="Finished">Finished</option>
-            <option value="WIP">WIP</option>
-            <option value="Old">Old</option>
-        </select>
-      <label>Leader</label>
-        <input type="text" name="leader">
-      <label>Equipment</label>
-        <textarea name="equipment"></textarea>
-      <label>Description</label>
-        <textarea name="description"></textarea>
-      <label>Army</label>
-        <select name="army">
-            <% user.armies.forEach(a => { %>
-                <option value="<%= a._id %>"><%= a.armyName %></option>
-            <% }) %>
-        </select>
-        <div>
-            <input type="file" name="image">
+
+    <form id="new-squad" class="row g-3" method="POST" enctype="multipart/form-data" action="/squads">
+      <div class="col-md-3">
+          <label class="form-label">Squad name</label>
+            <input class="form-control" type="text" name="squadName">
+      </div>
+      <div class="col-md-3">
+          <label class="form-label">Genre</label>
+            <input class="form-control" type="text" name="genre">
+      </div>
+      <div class="col-md-3">
+          <label class="form-label">Status</label>
+            <select class="form-control" name="status">
+                <option value="Finished">Finished</option>
+                <option value="WIP">WIP</option>
+                <option value="Old">Old</option>
+            </select>
+      </div>
+      <div class="col-md-3">
+          <label class="form-label">Leader</label>
+            <input class="form-control" type="text" name="leader">
+      </div>
+      <div class="col-12">
+          <label class="form-label">Equipment</label>
+            <textarea class="form-control" name="equipment"></textarea>
+      </div>
+      <div class="col-12">
+          <label class="form-label">Description</label>
+            <textarea class="form-control" name="description"></textarea>
+      </div>
+      <div class="col-4">
+          <label class="form-label">Army</label>
+            <select class="form-control" name="army">
+                <% user.armies.forEach(a => { %>
+                    <option value="<%= a._id %>"><%= a.armyName %></option>
+                <% }) %>
+            </select>
+      </div>
+      <div class="col-4">
+          <div>
+            <label class="form-label">Image</label>
+            <input class="form-control" type="file" name="image">
           </div>
-      <button>Add Squad</button>      
+      </div>
+      <div class="col-4">
+          <button class="btn btn-success btn-lg" type="submit">Add Squad</button>      
+      </div>
     </form>
   </section>
   

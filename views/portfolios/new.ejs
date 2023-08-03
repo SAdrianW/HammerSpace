@@ -1,40 +1,59 @@
 <%- include('../partials/header') %>
 
-<!-- <h1>New Portfolio</h1> -->
-<h2>Create a detail page for a new Portfolio</h2>
 
-<!-- !!!??? HELP: need to make a table that takes multiple inputs and assigns all new fields to a new data page(?), but assigns new 
-    data to existing data/models. ex: Have created portfolio and army; creating squad is current task, filled out pf and army forms 
-    with same name (drop down box [select] if exists). Want to make new squad and assign it to existing pf and army not make new pf 
-    and army. Use String.Split(', ') maybe? 
-    
-    See new-avd.ejs for larger table that was an attempt at the above.
-                        notes on connectivity
-    !!!??? -->
+<h2>Create a New Portfolio</h2>
+<br>
 
-
-
-<form id="new-portfolio" action="/portfolios" enctype="multipart/form-data" method="POST">
-    <label>Portfolio Name</label>
-    <input type="text" name="pfName">
-    <label>Genre</label>
-    <input type="text" name="genre">
-    <div>
-        <input type="file" name="image">
-      </div>
-    <input type="submit">
+<form class="row g-3" id="new-portfolio" action="/portfolios" enctype="multipart/form-data" method="POST">
+    <div class="col-md-6">
+        <label class="form-label">Portfolio Name</label>
+            <input class="form-control" type="text" name="pfName">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Genre</label>
+            <input class="form-control" type="text" name="genre">
+    </div>
+    <div class="col-md-6">
+        <div>
+            <label class="form-label">Cover Image</label>
+                <input class="form-control" type="file" name="image">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-lg btn-success" type="submit">Create Portfolio</button>
+    </div>
 </form>
 
-<br>
-<h3>Create a New Army on the Army creation Page</h3>
-<br>
-<a href="/armies/new">Army Creator</a>
-<br>
-<h3>Create a New Squad on the Squad creation Page</h3>
-<br>
-<a href="/squads/new">Squad Creator</a>
-<h3>Create a New Unit on the Unit creation Page</h3>
-<br>
-<a href="/units/new">Unit Creator</a>
+<br><br>
+
+<section>
+    <br>
+    <div class="border">
+        <h3>Create a New Army on the Army creation Page</h3>
+            <br>
+        <button class="btn btn-lg btn-warning">
+            <a class="text-center text-primary" href="/armies/new">Army Creator</a>
+        </button>
+            <br><br>
+    </div>
+    <br>
+    <div class="border">
+        <h3>Create a New Squad on the Squad creation Page</h3>
+            <br>
+        <button class="btn btn-lg btn-warning">
+            <a class="text-center text-primary" href="/squads/new">Squad Creator</a>
+        </button>
+            <br><br>
+    </div>
+    <br>
+    <div class="border">
+        <h3>Create a New Unit on the Unit creation Page</h3>
+            <br>
+        <button class="btn btn-lg btn-warning">
+            <a class="text-center text-primary" href="/units/new">Unit Creator</a>
+        </button>
+            <br><br>
+    </div>
+</section>
 
 <%- include('../partials/footer') %>

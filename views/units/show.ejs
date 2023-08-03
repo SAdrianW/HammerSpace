@@ -11,16 +11,14 @@
         <thead>
           <tr>
             <th>Genre</th>
-            <th>User Name</th>
-            
+            <th>User Name</th>            
             <th></th>
           </tr>
         </thead>
         <tbody>
             <tr>
               <td><%= unit.genre %></td>
-              <td><%= unit.userName %></td>
-                    
+              <td><%= unit.userName %></td>                    
               <td>
                 <% if (user?._id.equals(unit.user)) { %>
                   <form action="/units/<%= unit._id %>?_method=DELETE" method="POST">

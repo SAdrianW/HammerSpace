@@ -4,28 +4,43 @@
 
 <section>
   <h3>Edit Army data</h3>
-    <form id="new-army" method="POST" action="/armies/<%= army._id %>?_method=PUT">
-      <label>Army name</label>
-        <input type="text" name="armyName" value="<%= army.armyName %>">
-      <label>Genre</label>
-        <input type="text" name="genre" value="<%= army.genre %>">
-      <label>Leader</label>
-        <input type="text" name="leader" value="<%= army.leader %>">
-      <label>Description</label>
-        <textarea name="description"><%= army.description %></textarea>
-      <label>Status</label>
-        <select name="status">
-          <option value="Finished">Finished</option>
-          <option value="WIP">WIP</option>
-          <option value="Old">Old</option>
-        </select>
-      <label>Portfolio</label>
-        <select name="portfolio">
-          <% user.portfolios.forEach(p => { %>
-              <option value="<%= p._id %>"><%= p.pfName %></option>
-          <% }) %>
-        </select>
-      <button>Edit Army</button>      
+
+    <form class="row g-3" id="new-army" method="POST" action="/armies/<%= army._id %>?_method=PUT">
+      <div class="col-md-4">
+        <label class="form-label">Army name</label>
+          <input class="form-control" type="text" name="armyName" value="<%= army.armyName %>">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Genre</label>
+          <input class="form-control" type="text" name="genre" value="<%= army.genre %>">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Leader</label>
+          <input class="form-control" type="text" name="leader" value="<%= army.leader %>">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Description</label>
+          <textarea class="form-control" name="description"><%= army.description %></textarea>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Status</label>
+          <select class="form-control" name="status">
+            <option value="Finished">Finished</option>
+            <option value="WIP">WIP</option>
+            <option value="Old">Old</option>
+          </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Portfolio</label>
+          <select class="form-control" name="portfolio">
+            <% user.portfolios.forEach(p => { %>
+                <option value="<%= p._id %>"><%= p.pfName %></option>
+            <% }) %>
+          </select>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-lg btn-success">Edit Army</button>      
+      </div>
     </form>
 </section>
   

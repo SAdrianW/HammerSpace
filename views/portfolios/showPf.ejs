@@ -3,10 +3,12 @@
 <!-- TODO re-organise list -->
 
 <section>
-  <table id="portfolio-details">
+  <table class="table" id="portfolio-details">
     <thead>
       <h3><%= portfolio.pfName %></h3>
-      <a href="/portfolios/<%= portfolio._id %>/edit">Edit</a>
+      <button class="btn btn-sm btn-secondary">
+        <a href="/portfolios/<%= portfolio._id %>/edit">Edit</a>
+      </button>
       <tr>
         <th>Genre</th>
         <th>Cover Image</th>
@@ -20,7 +22,7 @@
     <tbody>
         <tr>
           <td><%= portfolio.genre %></td>
-          <td>Image example</td>
+          <td><img src="<%= portfolio.img %>" class="img-thumbnail" width="300" height="300" alt="army-img"></td>
           <td><%= portfolio.userName %></td>
           <td>
             <ul>

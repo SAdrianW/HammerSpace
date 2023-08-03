@@ -4,30 +4,48 @@
 
 <section>
     <h3>Edit Squad data</h3>
-    <form id="edit-squad" method="POST" action="/squads/<%= squad._id %>?_method=PUT">
-      <label>Squad name</label>
-        <input type="text" name="squadName" value="<%= squad.squadName %>">
-      <label>Genre</label>
-        <input type="text" name="genre" value="<%= squad.genre %>">
-      <label>Status</label>
-        <select name="status">
-            <option value="Finished">Finished</option>
-            <option value="WIP">WIP</option>
-            <option value="Old">Old</option>
-        </select>
-      <label>Leader</label>
-        <input type="text" name="leader" value="<%= squad.leader %>">
-      <label>Equipment</label>
-        <textarea name="equipment"><%= squad.equipment %></textarea>
-      <label>Description</label>
-        <textarea name="description"><%= squad.description %></textarea>
-      <label>Army</label>
-        <select name="army">
-            <% user.armies.forEach(a => { %>
-                <option value="<%= a._id %>"><%= a.armyName %></option>
-            <% }) %>
-        </select>
-      <button>Edit Squad</button>      
+
+    <form id="edit-squad" class="row g-3" method="POST" action="/squads/<%= squad._id %>?_method=PUT">
+      <div class="col-md-3">
+        <label class="form-label">Squad name</label>
+          <input class="form-control" type="text" name="squadName" value="<%= squad.squadName %>">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Genre</label>
+          <input class="form-control" type="text" name="genre" value="<%= squad.genre %>">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Status</label>
+          <select class="form-control" name="status">
+              <option value="Finished">Finished</option>
+              <option value="WIP">WIP</option>
+              <option value="Old">Old</option>
+          </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Leader</label>
+          <input class="form-control" type="text" name="leader" value="<%= squad.leader %>">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Equipment</label>
+          <textarea class="form-control" name="equipment"><%= squad.equipment %></textarea>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Description</label>
+          <textarea class="form-control" name="description"><%= squad.description %></textarea>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Army</label>
+          <select class="form-control" name="army">
+              <% user.armies.forEach(a => { %>
+                  <option value="<%= a._id %>"><%= a.armyName %></option>
+              <% }) %>
+          </select>
+      </div>
+      <br>
+      <div class="col-md-4">
+        <button class="btn btn-success btn-lg" type="submit">Edit Squad</button>      
+      </div>
     </form>
   </section>
   

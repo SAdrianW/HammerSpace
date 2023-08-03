@@ -3,10 +3,12 @@
 <!-- TODO re-organise list -->
 
 <section>
-  <table id="army-details">
-    <thead>
+  <table class="table" id="army-details">
       <h3><%= army.armyName %></h3>
-      <a href="/armies/<%= army._id %>/edit">Edit Army</a>
+      <button class="btn btn-sm btn-secondary">
+          <a href="/armies/<%= army._id %>/edit">Edit Army</a>    
+      </button>
+    <thead>
       <tr>
         <th>Genre</th>
         <th>Cover Image</th>
@@ -21,7 +23,7 @@
     <tbody>
         <tr>
           <td><%= army.genre %></td>
-          <td><img src="<%= army.img %>" class="img-thumbnail" alt="army-img"></td>
+          <td><img src="<%= army.img %>" class="img-thumbnail" width="300" height="300" alt="army-img"></td>
           <td><%= army.userName %></td>
           <td>
             <ul>

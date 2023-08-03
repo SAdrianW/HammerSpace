@@ -1,46 +1,59 @@
 <%- include('../partials/header') %>
 
+<div class="col-4">
+  <h3 class="text-center"><%= squad.squadName %></h3>
+</div>
 
-<table id="squad-details">
-  <thead>
-    <h3><%= squad.squadName %></h3>
-    <a href="/squads/<%= squad._id %>/edit">Edit</a>
-    <tr>
-      <th>Genre</th>
-      <th>User Name</th>
-      <th>Leader</th>
-      <th>Description</th>
-      <th>Equipment</th>
-      <th>Units</th>
-      <th>Images</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= squad.genre %></td>
-        <td><%= squad.userName %></td>
-        <td><%= squad.leader %></td>
-        <td><%= squad.description %></td>
-        <td><%= squad.equipment %></td>
-        <td></td>       
-        <td>
-          <ul>
-            <% squad.units.forEach((u) => { %>
-              <li><a href="/units/<%= u._id %>"><%= u.unitName %></a></li>
-            <% }) %>
-          </ul>
-        </td>
-        <td><img src="<%= squad.img %>" class="img-fluid" alt="squad-img"></td>
-        <td>
-          <% if (user?._id.equals(squad.user)) { %>
-            <form action="/squads/<%= squad._id %>?_method=DELETE" method="POST">
-              <button type="submit">&times;</button>
-            </form>
-          <% } %>
-        </td>       
-      </tr> 
-  </tbody>
-</table>
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col-4">
+      <table class="table" id="squad-details">
+        <thead>
+          <tr>
+            <th>Genre</th>
+            <th>User Name</th>
+            <th>Leader</th>
+            <th>Units</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= squad.genre %></td>
+              <td><%= squad.userName %></td>
+              <td><%= squad.leader %></td>
+              <td>
+                  <% if (user?._id.equals(squad.user)) { %>
+                    <form action="/squads/<%= squad._id %>?_method=DELETE" method="POST">
+                      <button type="submit">&times;</button>
+                    </form>
+                    <% } %>
+              </td>       
+              <td></td>       
+            </tr> 
+        </tbody>
+        <table class="table">
+          <thead>
+            <th>Description</th>
+            <th>Equipment</th>
+          </thead>
+          <tbody>
+            <td><%= squad.description %></td>
+            <td><%= squad.equipment %></td>
+          </tbody>
+        </table>
+        <button class="btn btn-secondary btn-sm">
+          <a href="/squads/<%= squad._id %>/edit">Edit</a>
+        </button>
+      </table>
+    </div>
+    <div class="col-8">
+      <td><img src="<%= squad.img %>" class="img-fluid" alt="squad-img"></td>
+    </div>
+  </div>
+</div>
+
+
   
 
 
