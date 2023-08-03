@@ -30,7 +30,7 @@
             <% }) %>
           </ul>
         </td>
-        <td><img src="<%= squad.img %>" alt="squad-img"></td>
+        <td><img src="<%= squad.img %>" class="img-fluid" alt="squad-img"></td>
         <td>
           <% if (user?._id.equals(squad.user)) { %>
             <form action="/squads/<%= squad._id %>?_method=DELETE" method="POST">

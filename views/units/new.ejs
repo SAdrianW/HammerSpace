@@ -4,40 +4,60 @@
 <!-- copy enctype -->
 <section>
     <h3>Add Unit to Squad</h3>
-    <form id="new-unit" method="POST" enctype="multipart/form-data" action="/units">
-      <label>Unit name</label>
-        <input type="text" name="unitName">
-      <label>Genre</label>
-        <input type="text" name="genre">
-      <label>Status</label>
-        <select name="status">
-            <option value="Finished">Finished</option>
-            <option value="WIP">WIP</option>
-            <option value="Old">Old</option>
-        </select>
-      <label>Equipment</label>
-        <textarea name="equipment"></textarea>
-      <label>Description</label>
-        <textarea name="description"></textarea>
-      <label>Army</label>
-        <select name="army">
-            <% user.armies.forEach(a => { %>
-                <option value="<%= a._id %>"><%= a.armyName %></option>
-            <% }) %>
-        </select>
-      <label>Squad</label>
-        <select name="squad">
-            <% user.armies.squads.forEach(s => { %>
-                <option value="<%= s._id %>"><%= s.squadName %></option>
-            <% }) %>
-        </select>
-        <!-- above option allows all squads from all armies TODO fix -->
+
+    <form id="new-unit" class="row g-3" method="POST" enctype="multipart/form-data" action="/units">
+      <div class="col-md-4">
+        <label class="form-label">Unit name</label>
+          <input type="text" class="form-control" name="unitName">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Genre</label>
+          <input type="text" class="form-control" name="genre">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Status</label>
+          <select class="form-select" name="status">
+              <option value="Finished">Finished</option>
+              <option value="WIP">WIP</option>
+              <option value="Old">Old</option>
+          </select>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Equipment</label>
+          <textarea class="form-control" name="equipment"></textarea>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Description</label>
+          <textarea class="form-control" name="description"></textarea>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Army</label>
+          <select class="form-control" name="army">
+              <% user.armies.forEach(a => { %>
+                  <option value="<%= a._id %>"><%= a.armyName %></option>
+              <% }) %>
+          </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Squad</label>
+          <select class="form-control" name="squad">
+              <% user.armies.squads.forEach(s => { %>
+                  <option value="<%= s._id %>"><%= s.squadName %></option>
+              <% }) %>
+          </select>
+          <!-- above option allows all squads from all armies TODO fix -->
+      </div>
+      <div class="col-md-6">
         <div>
-          <input type="file" name="image">
+          <input class="form-control" type="file" name="image" multiple>
         </div>
-        <button type="submit">Add Unit</button>      
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-success btn-lg" type="submit">Add Unit</button>      
+      </div>
     </form>
-  </section>
+
+</section>
   
 <!-- form to uplad images  -->
 <!-- <form action="/users" enctype="multipart/form-data" method="POST">

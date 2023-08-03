@@ -4,36 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title><%= title %></title>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
+<div class="container">
 
-  <nav>
-    <a href="/">Home</a>
-    |
-    <a href="/portfolios">Portfolios</a>
-    |
-    <a href="/portfolios/new">New</a>
-    |
-    <a href="/users">Users</a>
-    |
-    <% if (user) { %>
-      <a href="/logout">Log-Out</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">Log-In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>
-    
-
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="row justify-content-start">
+            <div class="col-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+            </div>
+          </div>
+          <div class="row justify-content-start">
+            <div class="col">
+              <li class="nav-item">
+                <a class="nav-link" href="/portfolios">Portfolios</a>
+              </li>
+            </div>
+          </div>
+          <div class="row justify-content-start">
+            <div class="col">
+              <li class="nav-item">
+                <a class="nav-link" href="/portfolios/new">New</a>
+              </li>
+            </div>
+          </div>
+          <div class="row justify-content-start">
+            <div class="col">
+              <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
+              </li>
+            </div>
+          </div>
+        </ul>
+        
+            <div class="navbar-text">
+              <% if (user) { %>
+                <a class="nav-link" href="/logout">Log-Out</a>
+              <% } else { %>
+                <a class="nav-link" href="/auth/google" class="login">Log-In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+              <% } %>
+            </div>
+         
+      </div>
+    </div>
   </nav>
+<br>
 
-  <h2>HammerSpace</h2>
-
-  <h1><%= title %></h1>
-  <!-- both titles need to be soft-coded -->
+<div class="col-6">
+  <h2 class="text-center">HammerSpace</h2>
+</div>
   
+  <h1 class="text-center"><%= title %></h1>
+
   <!-- <h4>quotes to go here, maybe</h4> -->
 
 

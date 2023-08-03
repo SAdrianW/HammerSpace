@@ -4,40 +4,58 @@
 
 <section>
   <h3>Edit Unit data</h3>
-    <form id="edit-unit" method="POST" action="/units/<%= unit._id %>?_method=PUT">
-      <label>Unit name</label>
-        <input type="text" name="unitName" value="<%= unit.unitName %>">
-      <label>Genre</label>
-        <input type="text" name="genre" value="<%= unit.genre %>">
-      <label>Status</label>
-        <select name="status">
-            <option value="Finished">Finished</option>
-            <option value="WIP">WIP</option>
-            <option value="Old">Old</option>
-        </select>
-        <label>Description</label>
-          <textarea name="description"> <%= unit.description %> </textarea>
-        <label>Equipment</label>
-          <textarea name="equipment"> <%= unit.equipment %> </textarea>
-      <label>Army</label>
-        <select name="army">
-            <% user.armies.forEach(a => { %>
-                <option value="<%= a._id %>"><%= a.armyName %></option>
-            <% }) %>
-        </select>
-      <label>Squad</label>
-        <select name="squad">
-            <% user.armies.squads.forEach(s => { %>
-                <option value="<%= s._id %>"><%= s.squadName %></option>
-            <% }) %>
-        </select>
+    
+    <form id="edit-unit" class="row g-3" method="POST" action="/units/<%= unit._id %>?_method=PUT">
+      <div class="col-md-4">
+        <label class="form-label">Unit name</label>
+          <input type="text" class="form-control" name="unitName" value="<%= unit.unitName %>">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Genre</label>
+          <input type="text" class="form-control" name="genre" value="<%= unit.genre %>">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Status</label>
+          <select class="form-control" name="status">
+              <option value="Finished">Finished</option>
+              <option value="WIP">WIP</option>
+              <option value="Old">Old</option>
+          </select>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Description</label>
+          <textarea class="form-control" name="description"> <%= unit.description %> </textarea>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Equipment</label>
+          <textarea class="form-control" name="equipment"> <%= unit.equipment %> </textarea>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Army</label>
+          <select class="form-control" name="army">
+              <% user.armies.forEach(a => { %>
+                  <option value="<%= a._id %>"><%= a.armyName %></option>
+              <% }) %>
+          </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Squad</label>
+          <select class="form-control" name="squad">
+              <% user.armies.squads.forEach(s => { %>
+                  <option value="<%= s._id %>"><%= s.squadName %></option>
+              <% }) %>
+          </select>
+      </div>
         <!-- above option allows all squads from all armies TODO fix -->
         <!-- <div>
           <input type="file" name="image">
         </div> -->
         <!-- need to make seperate img upload form -->
-        <button type="submit">Edit Unit</button>      
+        <div class="col-md-4">
+          <button class="btn btn-success btn-lg" type="submit">Edit Unit</button>      
+        </div>
     </form>
+
 </section>
   
 

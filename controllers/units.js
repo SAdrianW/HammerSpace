@@ -17,8 +17,23 @@ module.exports = {
 }
 
 
-async function create(req, res) {
+async function create(req, res, next) {
     try {
+        // let imageUrls = [];
+        // let unit = await Unit.create(req.body);
+        // let result;
+
+        // for (let i = 0; i < req.files.length; i++) {
+        //     result = await cloudinary.uploader.upload(req.files[i].path);
+        //     imageUrls.push(result.secure_url);
+            
+        // }
+        // unit = new Unit({
+        //     name: req.body.name,
+        //     avatar: imageUrls,
+        //     cloudinary_id: result.public_id
+        // })
+        // await unit.save();
         const result = await cloudinary.uploader.upload(req.file.path); //
         req.body.user = req.user._id;
         req.body.userName = req.user.name;

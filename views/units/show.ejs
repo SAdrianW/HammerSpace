@@ -1,36 +1,55 @@
 <%- include('../partials/header') %>
 
+<div class="col-4">
+  <h3 class="text-center"><%= unit.unitName %></h3>
+</div>
 
-<table id="unit-details">
-  <thead>
-    <h3><%= unit.unitName %></h3>
-    <a href="/units/<%= unit._id %>/edit">Edit</a>
-    <tr>
-      <th>Genre</th>
-      <th>User Name</th>
-      <th>Description</th>
-      <th>Equipment</th>
-      <th>Images</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= unit.genre %></td>
-        <td><%= unit.userName %></td>
-        <td><%= unit.description %></td>
-        <td><%= unit.equipment %></td>       
-        <td><img src="<%= unit.img %>" alt="unit-img"></td>
-        <td>
-          <% if (user?._id.equals(unit.user)) { %>
-            <form action="/units/<%= unit._id %>?_method=DELETE" method="POST">
-              <button type="submit">&times;</button>
-            </form>
-          <% } %>
-        </td>       
-      </tr> 
-  </tbody>
-</table>
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col-4">
+      <table class="table" id="unit-details">
+        <thead>
+          <tr>
+            <th>Genre</th>
+            <th>User Name</th>
+            
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= unit.genre %></td>
+              <td><%= unit.userName %></td>
+                    
+              <td>
+                <% if (user?._id.equals(unit.user)) { %>
+                  <form action="/units/<%= unit._id %>?_method=DELETE" method="POST">
+                    <button type="submit">&times;</button>
+                  </form>
+                <% } %>
+              </td>       
+            </tr>
+        </tbody>
+        <table class="table">
+          <thead>
+            <th>Description</th>
+            <th>Equipment</th>
+          </thead>
+          <tbody>
+            <td><%= unit.description %></td>
+            <td><%= unit.equipment %></td>  
+          </tbody>
+        </table>
+      </table>
+      <button class="btn btn-secondary btn-sm">
+        <a class="text-center" href="/units/<%= unit._id %>/edit">Edit</a>
+      </button>      
+    </div>
+    <div class="col-8">
+      <img src="<%= unit.img %>" class="img-fluid" alt="unit-img">
+    </div>
+  </div>
+</div>
   
 
 

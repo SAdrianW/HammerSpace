@@ -14,7 +14,7 @@ router.get('/units', unitsController.index);
 router.get('/units/new', ensureLoggedIn, unitsController.new);
 
 // POST /:id/units
-router.post('/units', upload.array('image', 10), unitsController.create);
+router.post('/units', upload.array('image', 12), unitsController.create);
 
 // GET /units/:id (show func)
 router.get('/units/:id', unitsController.show);
