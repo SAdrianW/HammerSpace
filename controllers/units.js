@@ -43,9 +43,9 @@ async function create(req, res, next) {
         const unit = await Unit.create(req.body);
         const army = await Army.findById(req.body.army);
         const squad = await Squad.findById(req.body.squad);
-        squad.units.push(unit._id);
-        army.units.push(unit._id);
-        army.squads.push(squad._id);
+        if (squad.units !== req.body.squad.units) squad.units.push(unit._id);
+        if (army.units !== req.body.army.units) army.units.push(unit._id);
+        // if (army.squads !== req.body.army.squads) army.squads.push(squad._id);
         await squad.save();
         await army.save();
     } catch (err) {

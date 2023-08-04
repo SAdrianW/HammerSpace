@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="col-4">
-  <h3 class="text-center"><%= squad.squadName %></h3>
+  <h3 class="text-center"><span class="bg"><%= squad.squadName %></span></h3>
 </div>
 
 <div class="container text-center">
@@ -14,7 +14,9 @@
             <th>User Name</th>
             <th>Leader</th>
             <th>Units</th>
-            <th></th>
+            <% if (user?._id.equals(squad.user)) { %>
+              <th>Delete</th>
+            <% } %>
           </tr>
         </thead>
         <tbody>

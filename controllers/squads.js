@@ -26,7 +26,7 @@ async function create(req, res) {
         req.body.cloudinary_id = result.public_id;
         const squad = await Squad.create(req.body);
         const army = await Army.findById(req.body.army);
-        army.squads.push(squad._id);
+        if (army.squads !== req.body.army.squads) army.squads.push(squad._id);
         await army.save();
     } catch (err) {
         console.log(err);

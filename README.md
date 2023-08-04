@@ -2,13 +2,13 @@
 
 # **HammerSpace**
 
-HammerSpace, or Project-2, was a chance to put together an idea that I had be harbouring for quite a while. That idea being a portfolio of my miniatures. 
+HammerSpace, or Project-2, was a chance to put together an idea that I had been harbouring for quite a while. That idea being a portfolio of my miniatures. 
 Since I have been busy working for the past few years I have fallen out of the habit of collecting, painting and gaming with my miniatures. Such a tragedy has let my memory of exactly what miniatures I have get a bit fuzzy.
 
-The brief of Project-2 stated that at least 2 data entities must be used, in addition to Users. In a fit of either ambition or madness I decided on 4, not counting users, since I felt that 4 would be necessary to accuratly display the narure of all the relationships in miniature wargames. This fit of mania, slowed down my production and I was forced to hold back on additional features in the initial release of HammerSpace.
+The brief of Project-2 stated that at least 2 data entities must be used, in addition to Users. In a fit of either ambition or madness I decided on 4, not counting users, since I felt that 4 would be necessary to accuratly display the nature of all the relationships in miniature wargames. This fit of mania slowed down my production, and I was forced to hold back on additional features in the initial release of HammerSpace.
 
 I have decided to define the contents of HammerSpace thusly:  
-- Portfolio(s) are the top layer of the nested relationship in HammerSpace. At this level a Portfolio is a very general idea of what contains. Such as making 2 Portfolios, one for Science-Fiction minis and one for Fantasy minis. Within a Portfolio is usually an Army, or several. 
+- Portfolio(s) are the top layer of the nested relationship in HammerSpace. At this level a Portfolio is a very general idea of what the colection contains. Such as making 2 Portfolios, one for Science-Fiction minis and one for Fantasy minis. Within a Portfolio is usually an Army, or several. 
 - An Army however is specific to everything belonging to a certain group or faction within a game or setting. Examples of what an Army could be are; Space Marines (Warhammer 40000, Games Workshop), Men of Gondor (LotR Battle Game, Games Workshop) or PanOceania (Infinity, Corvus Belli). In wargamming, as in life (since wargamming started its life as a way to predict the outcomes of wars), an Army is divided into Squads. 
 - A Squad by definition contains multiple individuals, the "standard" number in gaming, as echoed from life, is 10 individuals. This number is of course arbitary and squads can contain anything from 3 to 50 individuals.
 - A Unit as I have called it is simply an easier to type synomyn for individual. Therefor a Unit contains one and only one miniature. In a future version of HammerSpace I will allow for multiple images on one page so that different angles of a miniature can be taken.
@@ -23,10 +23,15 @@ For those among you who missed it; HammerSpace is both a reference to a space fo
 ---
 ## Screenshots
 
-![Portfolios page]()
+
+![Portfolios page](./public/images/screen-index-pf.png)
+
 ---
-![Squad page]()
+
+![Squad page](./public/images/screen-show-unit.png)
+
 ---
+
 
 ## Creation Tools
 - Node
@@ -67,6 +72,8 @@ Other plans that didn't get implemented were:
 - Comments on every data entity.
 - Sorting lists by different criteria.
 - Searching; For a specific name or part thereof, By Status or Genre tag.
+- Additional Nav bar at side to allow extra ease of navigation. Example: Show other units in squad, show other units in Army, Return to Portfolio or Army.
+- log-in re-directing to page that user was on.
 - Moderator control for selected user accounts (Once on a live server)
 
 

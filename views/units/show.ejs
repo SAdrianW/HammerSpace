@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="col-4">
-  <h3 class="text-center"><%= unit.unitName %></h3>
+  <h3 class="text-center"><span class="bg"><%= unit.unitName %></span></h3>
 </div>
 
 <div class="container text-center">
@@ -12,7 +12,9 @@
           <tr>
             <th>Genre</th>
             <th>User Name</th>            
-            <th></th>
+            <% if (user?._id.equals(unit.user)) { %>
+              <th>Delete</th>
+            <% } %>
           </tr>
         </thead>
         <tbody>

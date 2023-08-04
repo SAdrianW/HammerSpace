@@ -5,10 +5,10 @@
 <section>
   <table class="table" id="portfolio-details">
     <thead>
-      <h3><%= portfolio.pfName %></h3>
-      <button class="btn btn-sm btn-secondary">
-        <a href="/portfolios/<%= portfolio._id %>/edit">Edit</a>
-      </button>
+      <h3><span class="bg"><%= portfolio.pfName %></span></h3>
+      <a href="/portfolios/<%= portfolio._id %>/edit">
+        <button class="btn btn-sm btn-secondary">Edit</button>
+      </a>
       <tr>
         <th>Genre</th>
         <th>Cover Image</th>
@@ -16,7 +16,9 @@
         <th>Armies</th>
         <th>Squads</th>
         <th>Units</th>
-        <th></th>
+        <% if (user?._id.equals(portfolio.user)) { %>
+          <th>Delete</th>
+        <% } %>
       </tr>
     </thead>
     <tbody>

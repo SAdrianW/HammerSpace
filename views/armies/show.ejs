@@ -4,10 +4,11 @@
 
 <section>
   <table class="table" id="army-details">
-      <h3><%= army.armyName %></h3>
-      <button class="btn btn-sm btn-secondary">
-          <a href="/armies/<%= army._id %>/edit">Edit Army</a>    
-      </button>
+      <h3><span class="bg"><%= army.armyName %></span></h3>
+      <a href="/armies/<%= army._id %>/edit">
+        <button class="btn btn-sm btn-secondary">
+          Edit Army</button>
+        </a>    
     <thead>
       <tr>
         <th>Genre</th>
@@ -16,7 +17,9 @@
         <th>Squads</th>
         <th>Units</th>
         <th>Leader</th>
-        <th></th>
+        <% if (user?._id.equals(army.user)) { %>
+            <th>Delete</th>
+        <% } %>
       </tr>
     </thead>
     <tbody>
@@ -50,10 +53,10 @@
     </tbody>
     <table>
         <thead>
-        <th>Description</th>
+        <th><span class="bg">Description</span></th>
         </thead>
         <tbody>
-            <td><%= army.description %></td>
+            <td><span class="bg"><%= army.description %></span></td>
         </tbody>
     </table>
   </table>

@@ -7,22 +7,33 @@ body {
   color: rgb(245, 140, 2);
   text-shadow: 1px 1px 2px black;
   font-size: large;
+  background-color: rgb(136, 134, 134) / 0.5;
+  
 }
 
 .title {
   color: rgb(245, 107, 2);
   text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  
 }
 
 #HammerSpace {
   color: rgb(140, 0, 210);
   text-shadow: 2px 2px 2px rgb(0, 0, 0);
+
 }
 
-a {
+span.bg, label.form-label {
+  background-color: rgba(136, 134, 134, 0.75);
+  display: inline;
+}
+
+a, button.btn-dark, button.btn-secondary, button.btn-success {
   color: rgb(0, 75, 255);
   text-shadow: 1px 1px 2px rgb(110, 220, 245);
 }
+
+
 
 nav {
   background-image: url("../images/steel-checker-dark-plate.jpg");
@@ -30,7 +41,8 @@ nav {
 }
 
 table.table {
-  font-size: large;
+  font-size: 20px;
+  letter-spacing: 1px;
   /* color: rgb(50, 100, 0); */
   background-image: url("../images/steel-scratched-plate.jpg");
   background-size: cover;
@@ -61,4 +73,6 @@ table.table thead {
 footer {
   color: rgb(0, 0, 0);
   text-shadow: 1px 1px 1px rgb(220, 220, 220);
+  background-color: rgba(136, 134, 134, 0.5);
+  display: inline-block;
 }
